@@ -1,5 +1,5 @@
 import java.util.Objects;
-
+// todo bien avanzamos :)
 public class Proveedor {
 
         private int id;
