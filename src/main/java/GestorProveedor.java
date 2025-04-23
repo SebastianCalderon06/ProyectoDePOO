@@ -1,7 +1,8 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class GestorProveedores {
+public class GestorProveedor {
+    //cambiar clase a singular
     private List<Proveedor> proveedores = new ArrayList<>();
 
     public void agregarProveedor(Proveedor proveedor) {
