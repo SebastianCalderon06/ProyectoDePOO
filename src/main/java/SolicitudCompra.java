@@ -21,6 +21,7 @@ public class SolicitudCompra extends Documento {
         this.estado = EstadoSolicitud.RECHAZADA;
     }
 
+
     public void solicitar(){
         this.estado = EstadoSolicitud.SOLICITADA;
     }
@@ -28,6 +29,7 @@ public class SolicitudCompra extends Documento {
     public void enRevision(){
         this.estado = EstadoSolicitud.EN_REVISION;
     }
+
 
     @Override
     public String toString() {
