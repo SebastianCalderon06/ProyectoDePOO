@@ -1,4 +1,5 @@
-public class SolicitudCompra extends Documento {
+public class SolicitudCompra extends InformacionSolicitud {
+
     private Producto producto;
     private EstadoSolicitud estado;
 
@@ -9,24 +10,32 @@ public class SolicitudCompra extends Documento {
     }
 
     @Override
-    public double calcularCostoTotal() {
+    public double calcularCostoSolicitud() {
+
         return producto.calcularCostoTotal();
     }
 
     public void aprobar() {
+
+
         this.estado = EstadoSolicitud.APROBADA;
     }
 
     public void rechazar() {
+
+
         this.estado = EstadoSolicitud.RECHAZADA;
     }
 
 
     public void solicitar(){
+
+
         this.estado = EstadoSolicitud.SOLICITADA;
     }
 
     public void enRevision(){
+
         this.estado = EstadoSolicitud.EN_REVISION;
     }
 
