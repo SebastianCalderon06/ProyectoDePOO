@@ -6,6 +6,7 @@ public class GestorProveedor {
     private List<Proveedor> proveedores = new ArrayList<>();
 
     public void agregarProveedor(Proveedor proveedor) {
+
         proveedores.add(proveedor);
     }
 

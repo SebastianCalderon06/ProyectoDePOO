@@ -5,9 +5,13 @@ import java.util.List;
 public class GestorSolicitud {
 
     private List<SolicitudCompra> solicitudes = new ArrayList<>();
+
+
     public void agregarSolicitud(SolicitudCompra solicitud) {
+
         solicitudes.add(solicitud);
     }
+
     public void listarSolicitudes() {
         for (SolicitudCompra solicitud : solicitudes) {
             System.out.println(solicitud);
