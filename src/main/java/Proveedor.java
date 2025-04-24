@@ -1,45 +1,57 @@
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
-// todo bien avanzamos :)
+
 public class Proveedor {
 
-        private int id;
-        private String nombre;
-        private String direccion;
+    private int id;
+    private String nombre;
+    private String direccion;
+    private List<Producto> productos = new ArrayList<>(); // ← Agregado
 
-        public Proveedor(int id, String nombre, String direccion) {
-            this.id = id;
-            this.nombre = nombre;
-            this.direccion = direccion;
-        }
+    public Proveedor(int id, String nombre, String direccion) {
+        this.id = id;
+        this.nombre = nombre;
+        this.direccion = direccion;
+    }
 
-        public int getId() {
-            return id;
-        }
+    public void agregarProducto(Producto producto) {
+        productos.add(producto);
+    }
 
-        public String getNombre() {
-            return nombre;
-        }
+    public List<Producto> getProductos() {
+        return productos;
+    }
 
-        public String getDireccion() {
-            return direccion;
-        }
+    public int getId() {
+        return id;
+    }
 
-        @Override
-        public String toString() {
-            return "Proveedor{id=" + id + ", nombre='" + nombre + "', direccion='" + direccion + "'}";
-        }
+    public String getNombre() {
+        return nombre;
+    }
 
-        @Override
-        public boolean equals(Object o) {
-            if (this == o) return true;
-            if (o == null || getClass() != o.getClass()) return false;
-            Proveedor proveedor = (Proveedor) o;
-            return id == proveedor.id;
-        }
+    public String getDireccion() {
+        return direccion;
+    }
 
-        @Override
-        public int hashCode() {
-            return Objects.hash(id);
-        }
+    @Override
+    public String toString() {
+        return "Proveedor{id=" + id + ", nombre='" + nombre + "', direccion='" + direccion + "', productos=" + productos + "}";
+    }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Proveedor proveedor = (Proveedor) o;
+        return id == proveedor.id;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
 }
+
+
