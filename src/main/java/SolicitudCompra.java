@@ -20,6 +20,8 @@ public class SolicitudCompra extends Documento {
     public void rechazar() {
         this.estado = EstadoSolicitud.RECHAZADA;
     }
+
+    
   // faltan dos estados amas que estan en el enum
     @Override
     public String toString() {
