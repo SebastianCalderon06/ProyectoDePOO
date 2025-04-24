@@ -6,6 +6,7 @@ public class GestorProducto {
     private List<Producto> productos = new ArrayList<>();
 
     public void agregarProducto(Producto producto) {
+
         productos.add(producto);
     }
 

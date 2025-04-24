@@ -21,8 +21,16 @@ public class SolicitudCompra extends Documento {
         this.estado = EstadoSolicitud.RECHAZADA;
     }
 
-    
-  // faltan dos estados amas que estan en el enum
+
+    public void solicitar(){
+        this.estado = EstadoSolicitud.SOLICITADA;
+    }
+
+    public void enRevision(){
+        this.estado = EstadoSolicitud.EN_REVISION;
+    }
+
+
     @Override
     public String toString() {
         return "SolicitudCompra{id=" + getId() + ", producto=" + producto + ", estado=" + estado+"}";}
