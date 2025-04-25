@@ -8,13 +8,27 @@ public class SolicitudCompra extends InformacionSolicitud {
         this.producto = producto;
         this.estado = estado;
     }
-
     @Override
     public double calcularCostoSolicitud() {
 
         return producto.calcularCostoTotal();
     }
 
+    public Producto getProducto() {
+        return producto;
+    }
+
+    public void setProducto(Producto producto) {
+        this.producto = producto;
+    }
+
+    public EstadoSolicitud getEstado() {
+        return estado;
+    }
+
+    public void setEstado(EstadoSolicitud estado) {
+        this.estado = estado;
+    }
     public void aprobar() {
 
 
@@ -44,3 +58,6 @@ public class SolicitudCompra extends InformacionSolicitud {
     public String toString() {
         return "SolicitudCompra{id=" + getId() + ", producto=" + producto + ", estado=" + estado+"}";}
 }
+
+
+

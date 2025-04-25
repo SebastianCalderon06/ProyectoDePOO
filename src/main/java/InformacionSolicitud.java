@@ -6,6 +6,7 @@ public abstract class InformacionSolicitud {
     }
 
     public InformacionSolicitud(int id) {
+
         this.id = id;
     }
 
