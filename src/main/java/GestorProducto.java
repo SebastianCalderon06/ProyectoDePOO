@@ -1,12 +1,18 @@
 
 import java.util.ArrayList;
 import java.util.List;
-// por fa revisa ahorita si esta bien
 public class GestorProducto {
     private List<Producto> productos = new ArrayList<>();
 
-    public void agregarProducto(Producto producto) {
 
+    public List<Producto> getProductos() {
+        return productos;
+    }
+    public void setProductos(List<Producto> productos) {
+        this.productos = productos;
+    }
+
+    public void agregarProducto(Producto producto) {
         productos.add(producto);
     }
 
@@ -15,13 +21,19 @@ public class GestorProducto {
             System.out.println(producto);
         }
     }
+    // cambiamos para que el metodo muestre un mensaje en caso de no encontrar lo que buscamos
 
-    public Producto buscarProductoPorNombre(String nombre) {
+    public String buscarProductoPorNombre(String nombre) {
         for (Producto producto : productos) {
             if (producto.getNombre().equalsIgnoreCase(nombre)) {
-                return producto;
+                return "Producto encontrado: " + producto;
             }
         }
-        return null;
+        return "No se encontró o no existe el producto buscado.";
     }
 }
+
+
+
+
+

@@ -1,4 +1,4 @@
-public class Producto implements Calcular {
+public class Producto implements Calculable {
 
     private int id;
     private String nombre;

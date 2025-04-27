@@ -1,9 +1,15 @@
 import java.util.ArrayList;
 import java.util.List;
-
 public class GestorProveedor {
-    //cambiar clase a singular
     private List<Proveedor> proveedores = new ArrayList<>();
+
+    public List<Proveedor> getProveedores() {
+        return proveedores;
+    }
+
+    public void setProveedores(List<Proveedor> proveedores) {
+        this.proveedores = proveedores;
+    }
 
     public void agregarProveedor(Proveedor proveedor) {
 
@@ -15,14 +21,15 @@ public class GestorProveedor {
             System.out.println(proveedor);
         }
     }
+    // cambiamos para que el metodo muestre un mensaje en caso de no encontrar lo que buscamos
 
-    public Proveedor buscarProveedorPorId(int id) {
+    public String buscarProveedorPorId(int id) {
         for (Proveedor proveedor : proveedores) {
             if (proveedor.getId() == id) {
-                return proveedor;
+                return "Proveedor " +proveedor;
             }
         }
-        return null;
+        return "El proveedor no encuentra o no existe";
     }
 }
 

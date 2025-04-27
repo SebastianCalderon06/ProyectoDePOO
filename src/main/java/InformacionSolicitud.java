@@ -17,8 +17,15 @@ public abstract class InformacionSolicitud {
     public void setId(int id) {
         this.id = id;
     }
-
+    //este es el metodo que queremos implementa en solicitud de compra
     public abstract double calcularCostoSolicitud();
+
+    @Override
+    public String toString() {
+        return "InformacionSolicitud{" +
+                "id=" + id +
+                '}';
+    }
 }
 
 
