@@ -14,21 +14,30 @@ public class Producto implements Calculable {
 
     @Override
     public double calcularCostoTotal() {
-
         return precioUnitario * cantidad;
     }
 
-
+    public int getId() {
+        return id;
+    }
 
     public String getNombre() {
         return nombre;
     }
 
+    public double getPrecioUnitario() {
+        return precioUnitario;
+    }
+
+    public int getCantidad() {
+        return cantidad;
+    }
+
     @Override
     public String toString() {
-        return "Producto{id=" + id + ", nombre='" + nombre + "', precioUnitario=" + precioUnitario + ", cantidad=" + cantidad +
-        "}";
-
+        return "ID: " + id + "\n" +
+                "Nombre: " + nombre + "\n" +
+                "Precio Unitario: " + precioUnitario + "\n" +
+                "Cantidad: " + cantidad + "\n";
     }
 }
-

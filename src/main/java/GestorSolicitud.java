@@ -1,9 +1,7 @@
-// Estaba haciendo las clases bro :) ya no me llames
-
 import java.util.ArrayList;
 import java.util.List;
-public class GestorSolicitud {
 
+public class GestorSolicitud {
     private List<SolicitudCompra> solicitudes = new ArrayList<>();
 
     public List<SolicitudCompra> getSolicitudes() {
@@ -15,7 +13,6 @@ public class GestorSolicitud {
     }
 
     public void agregarSolicitud(SolicitudCompra solicitud) {
-
         solicitudes.add(solicitud);
     }
 
@@ -24,14 +21,14 @@ public class GestorSolicitud {
             System.out.println(solicitud);
         }
     }
-    // cambiamos para que el metodo muestre un mensaje en caso de no encontrar lo que buscamos
 
-    public String buscarSolicitudPorId(int id) {
+    public SolicitudCompra buscarSolicitudPorId(int id) {
         for (SolicitudCompra solicitud : solicitudes) {
             if (solicitud.getId() == id) {
-                return "Su solicitud " + solicitud;
+                return solicitud;
             }
         }
-        return "No existe la solicitud buscada";
+        return null;
     }
 }
+

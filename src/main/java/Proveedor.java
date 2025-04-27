@@ -7,7 +7,7 @@ public class Proveedor {
     private int id;
     private String nombre;
     private String direccion;
-    private List<Producto> productos = new ArrayList<>(); // ← Agregado
+    private List<Producto> productos = new ArrayList<>(); // Lista de productos del proveedor
 
     public Proveedor(int id, String nombre, String direccion) {
         this.id = id;
@@ -16,8 +16,20 @@ public class Proveedor {
     }
 
     public void agregarProducto(Producto producto) {
+        if (buscarProductoPorId(producto.getId()) == null) {
+            productos.add(producto);
+        } else {
+            System.out.println("El producto con ID " + producto.getId() + " ya existe.");
+        }
+    }
 
-        productos.add(producto);
+    public Producto buscarProductoPorId(int id) {
+        for (Producto producto : productos) {
+            if (producto.getId() == id) {
+                return producto;
+            }
+        }
+        return null;
     }
 
     public int getId() {
@@ -56,19 +68,18 @@ public class Proveedor {
     public String toString() {
         return "Proveedor{id=" + id +
                 ", nombre='" + nombre +
-                "', direccion='" + direccion +
-                "', productos=" + productos + "}";
+                "', direccion='" + direccion + "\n" +
+                ", productos=" + productos + "\n" ;
     }
 
     @Override
     public boolean equals(Object o) {
-
         if (this == o)
             return true;
         if (o == null || getClass() != o.getClass())
             return false;
         Proveedor proveedor = (Proveedor) o;
-            return id == proveedor.id;
+        return id == proveedor.id;
     }
 
     @Override
@@ -76,5 +87,3 @@ public class Proveedor {
         return Objects.hash(id);
     }
 }
-
-

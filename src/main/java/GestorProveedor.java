@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
+
 public class GestorProveedor {
     private List<Proveedor> proveedores = new ArrayList<>();
 
@@ -12,7 +13,6 @@ public class GestorProveedor {
     }
 
     public void agregarProveedor(Proveedor proveedor) {
-
         proveedores.add(proveedor);
     }
 
@@ -21,15 +21,15 @@ public class GestorProveedor {
             System.out.println(proveedor);
         }
     }
-    // cambiamos para que el metodo muestre un mensaje en caso de no encontrar lo que buscamos
 
-    public String buscarProveedorPorId(int id) {
+    public Proveedor buscarProveedorPorId(int id) {
         for (Proveedor proveedor : proveedores) {
             if (proveedor.getId() == id) {
-                return "Proveedor " +proveedor;
+                return proveedor;
             }
         }
-        return "El proveedor no encuentra o no existe";
+        return null;
     }
 }
+
 
