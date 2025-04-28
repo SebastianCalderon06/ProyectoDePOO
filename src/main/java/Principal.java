@@ -1,12 +1,17 @@
 import java.util.Scanner;
 
 public class Principal {
-    private static Scanner scanner = new Scanner(System.in);
-    private static GestorProducto gestorProducto = new GestorProducto();
-    private static GestorProveedor gestorProveedor = new GestorProveedor();
-    private static GestorSolicitud gestorSolicitud = new GestorSolicitud();
+    Scanner scanner = new Scanner(System.in);
+    GestorProducto gestorProducto = new GestorProducto();
+    GestorProveedor gestorProveedor = new GestorProveedor();
+    GestorSolicitud gestorSolicitud = new GestorSolicitud();
 
     public static void main(String[] args) {
+        Principal principal = new Principal();
+        principal.iniciar();
+    }
+
+    public void iniciar() {
         while (true) {
             mostrarMenu();
             int opcion = scanner.nextInt();
@@ -16,7 +21,6 @@ public class Principal {
                 case 1:
                     registrarProveedor();
                     break;
-
                 case 2:
                     registrarSolicitudCompra();
                     break;
@@ -53,36 +57,23 @@ public class Principal {
         }
     }
 
-    private static void mostrarMenu() {
+    void mostrarMenu() {
         System.out.println("===== SISTEMA DE GESTIÓN DE COMPRAS ERP =====");
-
-        System.out.print("Seleccione una opción: ");
-
         System.out.println("1. Registrar proveedor");
-
         System.out.println("2. Registrar solicitud de compra");
-
         System.out.println("3. Listar proveedores");
-
         System.out.println("4. Listar productos");
-
         System.out.println("5. Listar solicitudes de compra");
-
         System.out.println("6. Buscar proveedor por ID");
-
         System.out.println("7. Buscar producto por nombre");
-
         System.out.println("8. Buscar solicitud por número");
-
         System.out.println("9. Aprobar / Rechazar / En revisión solicitud de compra");
-
         System.out.println("10. Calcular total de una solicitud");
-
         System.out.println("11. Salir");
-
+        System.out.print("Seleccione una opción: ");
     }
 
-    private static void registrarProveedor() {
+    void registrarProveedor() {
         System.out.print("Ingrese el ID del proveedor: ");
         int id = scanner.nextInt();
         scanner.nextLine();
@@ -127,32 +118,7 @@ public class Principal {
         System.out.println("Proveedor registrado.");
     }
 
-    private static void registrarProducto() {
-        System.out.print("Ingrese el nombre del producto: ");
-        String nombre = scanner.nextLine();
-
-        if (gestorProducto.buscarProductoPorNombre(nombre) != null) {
-            System.out.println("Ya existe un producto con ese nombre.");
-            return;
-        }
-
-        System.out.print("Ingrese el ID del producto: ");
-        int id = scanner.nextInt();
-        scanner.nextLine();
-
-        System.out.print("Ingrese el precio unitario: ");
-        double precioUnitario = scanner.nextDouble();
-
-        System.out.print("Ingrese la cantidad disponible: ");
-        int cantidad = scanner.nextInt();
-
-        scanner.nextLine();
-
-        Producto producto = new Producto(id, nombre, precioUnitario, cantidad);
-        gestorProducto.agregarProducto(producto);
-        System.out.println("Producto registrado.");
-    }
-    private static void registrarSolicitudCompra() {
+    void registrarSolicitudCompra() {
         System.out.print("Ingrese el ID de la solicitud: ");
         int id = scanner.nextInt();
         scanner.nextLine();
@@ -200,21 +166,22 @@ public class Principal {
         System.out.println("Solicitud de compra registrada.");
     }
 
-    private static void listarProveedores() {
+     public void listarProveedores() {
         gestorProveedor.listarProveedores();
     }
 
-    private static void listarProductos() {
+     public void listarProductos() {
         gestorProducto.listarProductos();
     }
 
-    private static void listarSolicitudesCompra() {
+    public void listarSolicitudesCompra() {
         gestorSolicitud.listarSolicitudes();
     }
 
-    private static void buscarProveedorPorId() {
+    public void buscarProveedorPorId() {
         System.out.print("Ingrese el ID del proveedor: ");
         int id = scanner.nextInt();
+        scanner.nextLine();
         Proveedor proveedor = gestorProveedor.buscarProveedorPorId(id);
 
         if (proveedor == null) {
@@ -224,7 +191,7 @@ public class Principal {
         }
     }
 
-    private static void buscarProductoPorNombre() {
+    public void buscarProductoPorNombre() {
         System.out.print("Ingrese el nombre del producto: ");
         String nombre = scanner.nextLine();
         Producto producto = gestorProducto.buscarProductoPorNombre(nombre);
@@ -236,9 +203,10 @@ public class Principal {
         }
     }
 
-    private static void buscarSolicitudPorNumero() {
+    public void buscarSolicitudPorNumero() {
         System.out.print("Ingrese el ID de la solicitud: ");
         int id = scanner.nextInt();
+        scanner.nextLine();
         SolicitudCompra solicitud = gestorSolicitud.buscarSolicitudPorId(id);
 
         if (solicitud == null) {
@@ -248,9 +216,10 @@ public class Principal {
         }
     }
 
-    private static void aprobarRechazarSolicitud() {
+    public void aprobarRechazarSolicitud() {
         System.out.print("Ingrese el ID de la solicitud: ");
         int id = scanner.nextInt();
+        scanner.nextLine();
         SolicitudCompra solicitud = gestorSolicitud.buscarSolicitudPorId(id);
 
         if (solicitud == null) {
@@ -259,7 +228,6 @@ public class Principal {
         }
 
         System.out.print("¿Desea aprobar, rechazar o poner en revisión la solicitud? (aprobar/rechazar/en_revision): ");
-        scanner.nextLine();
         String accion = scanner.nextLine();
 
         switch (accion.toLowerCase()) {
@@ -279,9 +247,10 @@ public class Principal {
         System.out.println("Estado de la solicitud actualizado.");
     }
 
-    private static void calcularTotalSolicitud() {
+    public void calcularTotalSolicitud() {
         System.out.print("Ingrese el ID de la solicitud: ");
         int id = scanner.nextInt();
+        scanner.nextLine();
         SolicitudCompra solicitud = gestorSolicitud.buscarSolicitudPorId(id);
 
         if (solicitud == null) {
